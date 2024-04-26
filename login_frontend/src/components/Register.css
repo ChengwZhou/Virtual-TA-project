@@ -1,0 +1,88 @@
+.register-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 2rem auto;
+    padding: 150px 100px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    text-align: center;
+  }
+  
+  .register-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .home-link {
+    position: absolute;
+    font-size: 13px;
+    top: 50px; 
+    left: 480px; 
+    background-color: #f0f0f000; 
+    padding: 5px 10px; 
+    border-radius: 5px; 
+    text-decoration: none; 
+    color: #333; 
+    /* font-weight: bold; */
+  }
+  
+  .home-link:hover {
+    /* background-color: #e0e0e0;  */
+    text-decoration: underline;
+  }
+  
+  .input-group {
+    text-align: left;
+    margin-bottom: 15px;
+  }
+  
+  .input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .submit-btn {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .submit-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .message {
+    color: red;
+    margin-top: 10px;
+  }
+  
+
+  .signin-prompt {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.signin-link {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.signin-link:hover {
+    text-decoration: underline;
+}
