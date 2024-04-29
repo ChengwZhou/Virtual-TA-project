@@ -38,7 +38,7 @@ const ChatDialog = ({ tableName }) => {
     setMessages(messages => [...messages, newMessage]);
     setInputMessage("");
     await fetchReply(inputMessage);
-    openAlert('Your question has been sent successfully.', 'success');
+    // openAlert('Your question has been sent successfully.', 'success');
   };
 
   const openAlert = (message, severity) => {
