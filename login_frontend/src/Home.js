@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import HomeMain from './components/HomeMain';
 import './App.css'; // Assuming the CSS is stored here
 
 function Home() {
@@ -35,6 +36,11 @@ function Home() {
       <div className="content">
         <h1>Welcome to the Home Page</h1>
         {username && <p>Hello, {username}!</p>}
+      </div>
+      
+      <div>
+        <h3>Chat with virtual TA here!</h3>
+        <HomeMain />
       </div>
     </div>
   );
