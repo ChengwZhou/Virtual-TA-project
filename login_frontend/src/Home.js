@@ -33,13 +33,13 @@ function Home() {
           <Link to="/login" className="nav-link">Log in</Link>
         )}
       </nav>
-      <div className="content">
+      {/* <div className="content">
         <h1>Welcome to the Home Page</h1>
         {username && <p>Hello, {username}!</p>}
-      </div>
+      </div> */}
       
       <div>
-        <h3>Chat with virtual TA here!</h3>
+        {/* <h3>Chat with virtual TA here!</h3> */}
         <HomeMain />
       </div>
     </div>

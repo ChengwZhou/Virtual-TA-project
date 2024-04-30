@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-import { Box, TextField, Button, Typography} from '@mui/material';
+import { Box, TextField, IconButton, Button, Typography, Grid, InputAdornment } from '@mui/material';
+import SendIcon from '@mui/icons-material/Send'; 
 import Alert from '@mui/material/Alert';
 import CheckIcon from '@mui/icons-material/Check';
 import './ChatDialog.css';
@@ -9,6 +10,7 @@ const ChatDialog = ({ tableName }) => {
   const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState("");
   const [alertInfo, setAlertInfo] = useState({ open: false, text: '', severity: 'info' });
+  const messagesEndRef = useRef(null);
 
   const fetchReply = async (userMessage) => {
     try {
@@ -51,15 +53,26 @@ const ChatDialog = ({ tableName }) => {
   const closeAlert = () => {
     setAlertInfo({ ...alertInfo, open: false });
   };
+  
+  useEffect(() => {
+    if (messagesEndRef.current) {
+      messagesEndRef.current.scrollTop = messagesEndRef.current.scrollHeight;
+    }
+  }, [messages]);
 
   const courseStatusMessage = tableName ? "Currently Asking for: " + tableName : "Please select a course first.";
 
   return (
-    <Box sx={{ maxWidth: 500, margin: 'auto', p: 2 }}>
-      <Typography variant="subtitle1" sx={{ mb: 2 }}>
-        {courseStatusMessage}
-      </Typography>
-      <Box className="message-list">
+    <Box sx={{ maxWidth: 1500, margin: 'auto', p: 0 }}>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 1 }}>
+        <Typography variant="h6">
+          Chat with virtual TA here!
+        </Typography>
+        <Typography variant="subtitle1">
+          {courseStatusMessage}
+        </Typography>
+      </Box>
+      <Box className="message-list" ref={messagesEndRef}>
         {alertInfo.open && (
           <Alert severity="error"> {alertInfo.text} </Alert>
         )}
@@ -73,16 +86,48 @@ const ChatDialog = ({ tableName }) => {
             </Box>
         ))}
       </Box>
-      <TextField
-        fullWidth
-        variant="outlined"
-        placeholder="Enter your question..."
-        value={inputMessage}
-        onChange={(e) => setInputMessage(e.target.value)}
-        onKeyDown={(e) => e.key === 'Enter' ? handleSend() : null}
-        sx={{ mb: 1 }}
-      />
-      <Button variant="contained" fullWidth onClick={handleSend} disabled={!tableName}>Send</Button>
+      <Box sx={{ p: 0 }}>
+          <TextField
+              fullWidth
+              variant="outlined"
+              placeholder="Enter your question..."
+              value={inputMessage}
+              onChange={(e) => setInputMessage(e.target.value)}
+              onKeyDown={(e) => e.key === 'Enter' ? handleSend() : null}
+              sx={{
+                  mb: 1,
+                  '.MuiOutlinedInput-root': {
+                      borderRadius: '20px',
+                      borderColor: 'darkgrey',
+                      '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                          borderColor: 'dimgrey',
+                      }
+                  }
+              }}
+              InputProps={{
+                  endAdornment: (
+                      <InputAdornment position="end">
+                          <IconButton
+                              onClick={handleSend}
+                              disabled={!tableName}
+                              sx={{
+                                  backgroundColor: 'transparent',
+                                  color: 'grey',
+                                  '&:hover': {
+                                      backgroundColor: 'lightgrey',
+                                  },
+                                  '&.Mui-disabled': {
+                                      color: 'lightgray',
+                                  }
+                              }}
+                          >
+                          <SendIcon />
+                          </IconButton>
+                      </InputAdornment>
+                  ),
+              }}
+          />
+      </Box>
     </Box>
   );
 };

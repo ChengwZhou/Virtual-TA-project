@@ -3,8 +3,8 @@ import { Box, Typography, Button } from '@mui/material';
 
 const CourseSelector = ({ tables, selectedTable, setSelectedTable }) => {
   return (
-    <Box sx={{ height: '50%', mb: 2 }}>
-      <Typography variant="h6">Select the class you want to ask:</Typography>
+    <Box sx={{ height: '50%', mb: 0, width: '100%' }}>
+      <Typography variant="h6" sx={{ mb: 1.5, fontSize: '0.85rem', paddingLeft: '10px',  paddingTop: '5px'}}>Select the class you want to ask:</Typography>
       {tables.map((table, index) => (
         <Button
           key={index}
@@ -12,11 +12,20 @@ const CourseSelector = ({ tables, selectedTable, setSelectedTable }) => {
           onClick={() => setSelectedTable(table)}
           sx={{
             m: 1,
-            width: '90%',
-            backgroundColor: table === selectedTable ? 'primary.main' : '#ffffff',
-            color: table === selectedTable ? '#ffffff' : 'primary.main',
+            width: 'calc(100% - 16px)',  // Adjust width to account for margins
+            backgroundColor: table === selectedTable ? '#e0e0e0' : 'transparent',
+            color: 'black',
+            border: '1px solid',
+            borderColor: table === selectedTable ? '#e0e0e0' : 'transparent',
+            boxShadow: 'none',  // Remove box shadow
+            justifyContent: 'flex-start',  // Align text to the left
+            textTransform: 'none',  // Prevent uppercase transformation
+            paddingLeft: '10px',  // Left padding to move text to the right
+            borderRadius: '8px',
             '&:hover': {
-              backgroundColor: table === selectedTable ? 'primary.dark' : '#eeeeee'
+              backgroundColor: '#e0e0e0',
+              boxShadow: 'none', 
+              borderColor: 'transparent'
             }
           }}
         >

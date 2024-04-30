@@ -1,5 +1,5 @@
 run ```express.js``` backend server:
 
 ```
-node app.js
+node server.js
 ```

@@ -38,19 +38,34 @@
 }
 
 
+html, body {
+  height: 100%;   /* Full height of the viewport */
+  margin: 0;      /* Remove default margin */
+  padding: 0;     /* Remove default padding */
+}
+
 
 /*  Home module */
 .home {
   font-family: Arial, sans-serif;
 }
 
+.home-container {
+  height: 100vh;  /* 100% of the viewport height */
+  display: flex;
+  flex-direction: column; /* Stack child elements vertically */
+  overflow: hidden;       /* Hide overflow to prevent scroll */
+}
+
+
 .navbar {
-  background-color: #f8f8f8;
-  padding: 10px 20px;
+  background-color: #ffffff50;
+  padding: 10px 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #ffffff;
+  justify-content: space-between; /* Space items neatly */
 }
 
 .nav-link {
