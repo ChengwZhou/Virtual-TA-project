@@ -1,6 +1,5 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 import HomeMain from './components/HomeMain';
 import './App.css'; // Assuming the CSS is stored here
 
@@ -20,23 +19,7 @@ function Home() {
   
   return (
     <div className="home-container">
-      <nav className="navbar">
-        <Link to="/" className="nav-link">HOME</Link>
-        <span className="nav-divider">|</span>
-        {token ? (
-          <>
-            <span className="welcome-message">Welcome, {username || 'Guest'}</span>
-            <span>|</span>
-            <span className="nav-link" onClick={handleLogout} style={{ cursor: 'pointer', marginLeft: '10px' }}>Log out</span>
-          </>
-        ) : (
-          <Link to="/login" className="nav-link">Log in</Link>
-        )}
-      </nav>
-      {/* <div className="content">
-        <h1>Welcome to the Home Page</h1>
-        {username && <p>Hello, {username}!</p>}
-      </div> */}
+      
       
       <div>
         {/* <h3>Chat with virtual TA here!</h3> */}

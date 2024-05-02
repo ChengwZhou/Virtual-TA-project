@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Grid, Box, Typography, List, ListItem, Button } from '@mui/material';
 import ChatDialog from './ChatDialog'; 
-import UploadVideo from './UploadVideo'; 
 import CourseSelector from './CourseSelector';
 
 const HomeMain = () => {
@@ -29,18 +28,10 @@ const HomeMain = () => {
       <Box sx={{ flexGrow: 1, height: '100vh' }}>
         <Grid container spacing={0}>
           <Grid item xs={12} sm={2} md={2} sx={{ p: 2, bgcolor: 'grey.100' }}>
-            <CourseSelector tables={tables} selectedTable={selectedTable} setSelectedTable={setSelectedTable} />
+            <CourseSelector tables={tables} selectedTable={selectedTable} setSelectedTable={setSelectedTable} prompt="Select the class you want to ask:"/>
           </Grid>
           <Grid item xs={12} sm={8} md={8} sx={{ p: 2 }}>
             <ChatDialog tableName={selectedTable} />
-          </Grid>
-          <Grid item xs={12} sm={2} md={2} sx={{ p: 2 }}>
-            <Box sx={{ height: '100%' }}>
-              <Typography variant="subtitle1" sx={{ mb: 2, paddingTop: '30px' }}>
-                Upload new knowledge to knowledge base, will be changed to another page
-              </Typography>  
-              <UploadVideo/>
-            </Box>
           </Grid>
         </Grid>
       </Box>

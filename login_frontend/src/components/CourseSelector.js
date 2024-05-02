@@ -1,10 +1,10 @@
 import React from 'react';
 import { Box, Typography, Button } from '@mui/material';
 
-const CourseSelector = ({ tables, selectedTable, setSelectedTable }) => {
+const CourseSelector = ({ tables, selectedTable, setSelectedTable, prompt }) => {
   return (
     <Box sx={{ height: '50%', mb: 0, width: '100%' }}>
-      <Typography variant="h6" sx={{ mb: 1.5, fontSize: '0.85rem', paddingLeft: '10px',  paddingTop: '5px'}}>Select the class you want to ask:</Typography>
+      <Typography variant="h6" sx={{ mb: 1.5, fontSize: '0.85rem', paddingLeft: '10px',  paddingTop: '5px'}}>{prompt}</Typography>
       {tables.map((table, index) => (
         <Button
           key={index}
