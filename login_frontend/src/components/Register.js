@@ -12,7 +12,6 @@ function Register() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    // replace the URL with backend API address
     const response = await fetch('http://localhost:3000/register', {
       method: 'POST',
       headers: {

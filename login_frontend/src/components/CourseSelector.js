@@ -12,15 +12,15 @@ const CourseSelector = ({ tables, selectedTable, setSelectedTable, prompt }) => 
           onClick={() => setSelectedTable(table)}
           sx={{
             m: 1,
-            width: 'calc(100% - 16px)',  // Adjust width to account for margins
+            width: 'calc(100% - 16px)',  
             backgroundColor: table === selectedTable ? '#e0e0e0' : 'transparent',
             color: 'black',
             border: '1px solid',
             borderColor: table === selectedTable ? '#e0e0e0' : 'transparent',
-            boxShadow: 'none',  // Remove box shadow
-            justifyContent: 'flex-start',  // Align text to the left
-            textTransform: 'none',  // Prevent uppercase transformation
-            paddingLeft: '10px',  // Left padding to move text to the right
+            boxShadow: 'none', 
+            justifyContent: 'flex-start',  
+            textTransform: 'none', 
+            paddingLeft: '10px', 
             borderRadius: '8px',
             '&:hover': {
               backgroundColor: '#e0e0e0',
