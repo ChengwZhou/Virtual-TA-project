@@ -3,7 +3,7 @@ import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 import { Button, Card, CardActions, CardContent, Typography, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from '@mui/material';
 import { Grid, Box, List, ListItem } from '@mui/material';
-import CourseSelector from '../CourseSelector';
+import CourseSelector from '../CourseSelector/CourseSelector';
 import CreateBotButton from './components/CreateBotButton';
 import UploadVideo from './components/UploadVideo';
 import KnowledgeItems from './components/KnowledgeItems';

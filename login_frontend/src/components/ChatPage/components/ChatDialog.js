@@ -12,18 +12,42 @@ const ChatDialog = ({ tableName }) => {
   const [alertInfo, setAlertInfo] = useState({ open: false, text: '', severity: 'info' });
   const messagesEndRef = useRef(null);
 
+  // const fetchReply = async (userMessage) => {
+  //   try {
+  //     const response = await axios.post('http://lax.nonev.win:5000/ask', {
+  //       question: userMessage,
+  //       courseID: tableName
+  //     });
+
+  //     if (response.data && response.data.hasAnswer) {
+  //       const newMessage = { text: response.data.answer, author: "bot", image: response.data.link[0] };
+  //       setMessages(messages => [...messages, newMessage]);
+  //     } else {
+  //       setMessages(messages => [...messages, { text: "Please wait for the instructor to answer.", author: "bot" }]);
+  //     }
+  //   } catch (error) {
+  //     console.error('Error fetching reply:', error);
+  //     setMessages(messages => [...messages, { text: "Failed to fetch reply, please try again.", author: "bot" }]);
+  //   }
+  // };
+
   const fetchReply = async (userMessage) => {
     try {
-      const response = await axios.post('http://lax.nonev.win:5000/ask', {
-        question: userMessage,
-        courseID: tableName
+      // Update the URL and parameters as necessary
+      const response = await axios.post('http://lax.nonev.win:5079/askChatEngine', {
+        question: userMessage  // Assuming 'courseID' or 'tableName' isn't needed for askChatEngine
       });
-
-      if (response.data && response.data.hasAnswer) {
-        const newMessage = { text: response.data.answer, author: "bot", image: response.data.link[0] };
+  
+      // Update response handling according to the actual structure of response from askChatEngine
+      if (response.data && response.data.response) {  // Check if 'response' key exists and has data
+        const newMessage = {
+          text: response.data.response,  // Assuming response.text if necessary
+          author: "bot",
+          // If image data or other properties are expected, adjust accordingly
+        };
         setMessages(messages => [...messages, newMessage]);
       } else {
-        setMessages(messages => [...messages, { text: "Please wait for the instructor to answer.", author: "bot" }]);
+        setMessages(messages => [...messages, { text: "No answer available, please try again.", author: "bot" }]);
       }
     } catch (error) {
       console.error('Error fetching reply:', error);

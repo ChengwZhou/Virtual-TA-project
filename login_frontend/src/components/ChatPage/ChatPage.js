@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Grid, Box, Typography, List, ListItem, Button } from '@mui/material';
-import ChatDialog from './ChatDialog'; 
-import CourseSelector from './CourseSelector';
+import ChatDialog from './components/ChatDialog'; 
+import CourseSelector from '../CourseSelector/CourseSelector';
 
-const HomeMain = () => {
+const ChatPage = () => {
     const [tables, setTables] = useState([]);
     const [selectedTable, setSelectedTable] = useState("");
   
@@ -39,4 +39,4 @@ const HomeMain = () => {
     
   };
   
-  export default HomeMain;
+  export default ChatPage;
